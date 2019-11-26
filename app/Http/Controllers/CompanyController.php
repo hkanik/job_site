@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\AppliedJob;
+use App\User;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -23,6 +25,15 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return view('company.home');
+        $applied = AppliedJob::where('status',1)->get('applicant_id');
+
+        foreach ($applied as $item) {
+            $applicant = $item->applicant_id;
+        }
+        $applicant = User::where('id',$applicant)->get();
+        return view('company.home',[
+            'applied' => $applied,
+            'applicant' => $applicant
+        ]);
     }
 }

@@ -14,6 +14,8 @@
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right">{{ __('Skills') }}</label>
 
+                                <input type="hidden" name="uid" value="{{Auth::user()->id}}">
+
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="skills" required>
                                 </div>

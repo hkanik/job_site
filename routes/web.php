@@ -18,10 +18,12 @@ Route::get('/', function () {
 
 //applicant routes
 Auth::routes();
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile/update','HomeController@profileUpdate')->name('profile.update');
 Route::post('/profile-updated','HomeController@profileUpdated')->name('profile.updated');
+Route::get('/job-Post-Details/{id}','HomeController@jobPostDetails')->name('jobPostDetails');
+Route::get('/apply','HomeController@apply')->name('apply');
 
 
 //company routes

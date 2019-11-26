@@ -14,18 +14,23 @@
 
                     <div class="users" style="overflow:hidden; padding: 0;margin:0 auto;width: 60%; background-color: #4dc0b5;float:left;text-align: center; height: 450px;padding-top: 20px;">
                         <h2>Applicants</h2>
-                        <table style="text-align: center; font-size: 20px">
-                            <tr>
-                                <th width="20%">Sr No.</th>
-                                <th width="20%">Name</th>
+                        <table style="text-align: center; font-size: 20px; width: 100%;color: white">
+                            <tr style="color: black">
+                                <th width="40%">Sr No.</th>
+                                <th width="60%">Name</th>
                             </tr>
 
+                            @php($i=1)
+                            @foreach($applicant as $value)
                             <tr>
-                                <td>1.</td>
-                                <td>Anik</td>
+                                <td>{{$i++}}.</td>
+                                <td>{{$value->firstName.' '.$value->lastName}}</td>
                             </tr>
+                                @endforeach
                         </table>
                     </div>
+
+
 
                 </div>
             </div>
